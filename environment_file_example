@@ -1,0 +1,110 @@
+# Environment Configuration for Cloud Cost Optimizer
+# Copy this file to .env and fill in your values
+
+# ===== API Configuration =====
+API_HOST=0.0.0.0
+API_PORT=8000
+DEBUG=true
+
+# ===== Database Configuration =====
+# SQLite (default)
+DATABASE_URL=sqlite:///./data/cost_optimizer.db
+
+# PostgreSQL (optional, for production)
+# DATABASE_URL=postgresql://user:password@localhost/cost_optimizer
+
+# ===== LLM Configuration =====
+# Model selection
+LLM_MODEL=mistralai/Mistral-7B-Instruct-v0.1
+# Alternatives:
+# LLM_MODEL=meta-llama/Llama-2-7b-chat-hf
+# LLM_MODEL=tiiuae/falcon-7b-instruct
+
+# HuggingFace settings
+HF_HOME=./models
+TRANSFORMERS_CACHE=./models
+HF_TOKEN=your_huggingface_token_here  # Optional, for gated models
+
+# Device selection (cpu, cuda, mps)
+DEVICE=cpu
+
+# ===== Cloud Provider Configuration =====
+# AWS (optional, for real pricing data)
+AWS_REGION=ap-south-1
+AWS_ACCESS_KEY_ID=your_aws_key_here
+AWS_SECRET_ACCESS_KEY=your_aws_secret_here
+
+# GCP (optional)
+GCP_PROJECT_ID=your_gcp_project
+GCP_CREDENTIALS_PATH=./credentials/gcp.json
+
+# Azure (optional)
+AZURE_SUBSCRIPTION_ID=your_azure_subscription
+
+# ===== Optimization Settings =====
+# Default number of recommendations
+DEFAULT_RECOMMENDATIONS=15
+
+# Include high-risk recommendations by default
+INCLUDE_HIGH_RISK=true
+
+# Enable LLM by default
+USE_LLM=false  # Set to true if you want LLM recommendations
+
+# ===== Logging Configuration =====
+LOG_LEVEL=INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+LOG_FILE=./logs/optimizer.log
+
+# ===== Security Settings =====
+# API Key for authentication (optional)
+API_KEY=your_secure_api_key_here
+
+# Allowed CORS origins (comma-separated)
+CORS_ORIGINS=http://localhost:3000,http://localhost:8501
+
+# ===== Rate Limiting =====
+RATE_LIMIT_ENABLED=true
+RATE_LIMIT_REQUESTS=100
+RATE_LIMIT_PERIOD=3600  # seconds
+
+# ===== Monitoring & Observability =====
+# Sentry (optional)
+SENTRY_DSN=your_sentry_dsn_here
+
+# Prometheus metrics endpoint
+ENABLE_METRICS=false
+METRICS_PORT=9090
+
+# ===== External Services =====
+# Slack webhook for notifications (optional)
+SLACK_WEBHOOK_URL=your_slack_webhook_url
+
+# Email notifications (optional)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=your_email@gmail.com
+SMTP_PASSWORD=your_email_password
+NOTIFICATION_EMAIL=admin@example.com
+
+# ===== Cache Configuration =====
+# Redis (optional, for caching)
+REDIS_URL=redis://localhost:6379/0
+CACHE_TTL=3600  # seconds
+
+# ===== Development Settings =====
+# Enable hot reload
+RELOAD=true
+
+# Enable API documentation
+ENABLE_DOCS=true
+
+# ===== Production Settings =====
+# Set these for production deployment
+PRODUCTION=false
+SECRET_KEY=your_secret_key_here_generate_a_strong_one
+
+# ===== Feature Flags =====
+FEATURE_MULTI_CLOUD=false
+FEATURE_REAL_TIME_PRICING=false
+FEATURE_TERRAFORM_EXPORT=false
+FEATURE_COST_ANOMALY_DETECTION=false
