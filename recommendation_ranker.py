@@ -66,7 +66,7 @@ class RecommendationRanker:
         # Add workload match bonus
         workload_bonus = self._calculate_workload_match(rec, profile, usage_pattern)
         
-        # Add urgency bonus for over-budget projects
+        # Add urgency bonus for over-budget projects 
         urgency_bonus = 0
         if profile.monthly_budget_inr < 0:  # Over budget
             urgency_bonus = 10
